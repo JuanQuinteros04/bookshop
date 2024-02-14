@@ -2,6 +2,8 @@ package com.quinteros.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 @Entity
@@ -24,4 +26,36 @@ public class Book {
     @Column(name ="editorial")
     private String editorial;
 
+
+    public Long getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(Long isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
+
+    public String getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(String editorial) {
+        this.editorial = editorial;
+    }
 }
