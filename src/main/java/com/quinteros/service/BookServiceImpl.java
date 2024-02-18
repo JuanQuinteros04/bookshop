@@ -7,10 +7,12 @@ import com.quinteros.model.dto.BookResponse;
 import com.quinteros.model.mapper.BookMapper;
 import com.quinteros.persistence.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class BookServiceImpl implements BookService{
 
     @Autowired
@@ -24,8 +26,8 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public List<BookResponse> findBookById(Long id) {
-        return bookRepository.findById(id).stream().map(book -> bookMapper.bookToBookResponse(book)).collect(Collectors.toList());
+    public BookResponse findBookById(Long id) {
+        return bookMapper.bookToBookResponse(bookRepository.findById(id).orElseThrow(NotFoundException::new));
     }
 
     @Override
