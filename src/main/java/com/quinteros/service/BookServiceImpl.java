@@ -42,8 +42,8 @@ public class BookServiceImpl implements BookService{
         Book book = bookRepository.findById(id).orElseThrow(NotFoundException::new);
 
         // Actualizar los campos del libro si se proporcionan en el DTO
-        book.setIsbn(bookDTO.getIsbn() != null ? Long.valueOf(bookDTO.getIsbn()) : book.getIsbn());
         book.setName(bookDTO.getName() != null ? bookDTO.getName() : book.getName());
+        book.setIsbn(bookDTO.getIsbn() != null ? Long.valueOf(bookDTO.getIsbn()) : book.getIsbn());
         book.setWriter(bookDTO.getWriter() != null ? bookDTO.getWriter() : book.getWriter());
         book.setEditorial(bookDTO.getEditorial() != null ? bookDTO.getEditorial() : book.getEditorial());
 
