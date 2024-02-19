@@ -1,6 +1,7 @@
 package com.quinteros.service;
 
 import com.quinteros.exceptions.NotFoundException;
+import com.quinteros.model.Client;
 import com.quinteros.model.dto.ClientDTO;
 import com.quinteros.model.dto.ClientResponse;
 import com.quinteros.model.mapper.ClientMapper;
@@ -30,11 +31,19 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public ClientResponse createClient(ClientDTO clientDTO) {
-        return null;
+        Client client = clientMapper.clientDTOToClient(clientDTO);
+        clientRepository.save(client);
+        return clientMapper.clientToClientResponse(client);
     }
 
     @Override
     public void updateClient(Long id, ClientDTO clientDTO) {
+        Client client = clientRepository.findById(id).orElseThrow(RuntimeException::new);
+
+        client.setName(clientDTO.getName() != null ? clientDTO.getName() : client.getName());
+        client.setLastName(client.getLastName() != null ? clientDTO.getLast_name() : client.getLastName());
+        client.setAge(clientDTO.getAge() != null ? clientDTO.getAge() : client.getAge());
+        client.setEmail(client.getEmail() != null ? clientDTO.getEmail() : client.getEmail());
 
     }
 
