@@ -8,7 +8,7 @@ import lombok.Data;
 public class ClientDTO {
     private String name;
 
-    private String last_name;
+    private String lastName;
 
     private Long age;
 

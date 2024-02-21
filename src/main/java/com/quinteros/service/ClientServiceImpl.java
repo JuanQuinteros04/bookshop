@@ -41,9 +41,9 @@ public class ClientServiceImpl implements ClientService{
         Client client = clientRepository.findById(id).orElseThrow(RuntimeException::new);
 
         client.setName(clientDTO.getName() != null ? clientDTO.getName() : client.getName());
-        client.setLastName(client.getLastName() != null ? clientDTO.getLast_name() : client.getLastName());
+        client.setLastName(clientDTO.getLastName() != null ? clientDTO.getLastName() : client.getLastName());
         client.setAge(clientDTO.getAge() != null ? clientDTO.getAge() : client.getAge());
-        client.setEmail(client.getEmail() != null ? clientDTO.getEmail() : client.getEmail());
+        client.setEmail(clientDTO.getEmail() != null ? clientDTO.getEmail() : client.getEmail());
 
     }
 
