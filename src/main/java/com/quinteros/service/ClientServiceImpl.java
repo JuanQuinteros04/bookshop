@@ -49,6 +49,6 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public void deleteClient(Long id) {
-
+        clientRepository.delete(clientRepository.findById(id).orElseThrow(RuntimeException::new));
     }
 }
