@@ -9,7 +9,7 @@ public interface ClientService {
 
     List<ClientResponse> findAll();
 
-    ClientResponse findById(Long id);
+    ClientResponse findClientById(Long id);
 
     ClientResponse createClient(ClientDTO clientDTO);
     void updateClient(Long id, ClientDTO clientDTO);

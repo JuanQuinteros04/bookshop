@@ -25,7 +25,7 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public ClientResponse findById(Long id) {
+    public ClientResponse findClientById(Long id) {
         return clientMapper.clientToClientResponse(clientRepository.findById(id).orElseThrow(NotFoundException::new));
     }
 
