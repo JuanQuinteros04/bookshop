@@ -1,14 +1,11 @@
 package com.quinteros.model.dto;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Data
-@Getter
-@Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class BookDTO {
     private String isbn;
     private String name;
