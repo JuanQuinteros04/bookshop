@@ -27,12 +27,12 @@ public class BookController {
       return ResponseEntity.ok(bookService.findBookById(id));
     };
 
-    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<BookResponse> createBook(BookDTO bookDTO){
         return ResponseEntity.ok(bookService.createBook(bookDTO));
     }
 
-    @PostMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateBook(@PathVariable("id") Long id,BookDTO bookDTO){
         bookService.updateBook(id, bookDTO);
         return ResponseEntity.status(204).build();
